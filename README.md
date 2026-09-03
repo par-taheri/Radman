@@ -48,20 +48,16 @@ Unlike traditional Web3 donation widgets that load heavyweight SDKs (Web3Modal, 
 - **Solana (SOL):** Solana Pay standard URI format (`solana:<address>?amount=<sol>`).
 - **The Open Network (TON):** TON Transfer URI format (`ton://transfer/<address>?amount=<nanoton>`).
 
-### 🔢 3. In-House Mathematical Precision (No Float Errors)
-- Smallest-unit conversions (e.g. ETH/BSC to wei, TON to nanoton) use native `BigInt` parsing.
-- Decimal amount formatting (e.g. BIP-21 BTC, Solana Pay) uses string-based fixed-point parsing to avoid JavaScript `0.1 + 0.2 !== 0.3` IEEE 754 precision artifacts.
-
-### 🎨 4. Modern Dark & Light Theming
+### 🎨 3. Modern Dark & Light Theming
 - **Default Dark Palette:** Deep charcoal background (`#0d1117`), amber-gold accent tabs (`#f59e0b`), monospace address container (`#090d12`), and subtle border outlines (`#212836`).
 - **Light Palette:** Clean white background with neutral slate borders and crisp accents.
 - **Custom Theming:** Easily override primary colors and border radius via the `theme` configuration property.
 
-### 🌍 5. Native Internationalization & Full RTL
+### 🌍 4. Native Internationalization & Full RTL
 - **English (`en`):** Default locale with left-to-right (LTR) layout.
 - **Persian (`fa`):** Complete right-to-left (RTL) layout with localized typography and terminology.
 
-### ♿ 6. Accessible Dialog Semantics
+### ♿ 5. Accessible Dialog Semantics
 - Strict WAI-ARIA compliance: `role="dialog"`, `aria-modal="true"`, and descriptive `aria-label` attributes.
 - Built-in keyboard focus trap (`Tab` / `Shift+Tab`) and escape key dismissal (`Escape`).
 - Restores focus to the triggering element upon dismissal.
