@@ -6,6 +6,8 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "unpkg": "./dist/index.global.js",
+  "jsdelivr": "./dist/index.global.js",
   "exports": {
     ".": {
       "import": {
@@ -25,7 +27,8 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
-    "sample": "node sample/serve.js"
+    "sample": "node sample/serve.js",
+    "prepublishOnly": "npm run test && npm run build"
   },
   "keywords": [
     "radman",
