@@ -6,6 +6,8 @@ dist/
 
 # Local testing & demo
 sample/
+Landing/
+landing/
 
 # Logs
 *.log

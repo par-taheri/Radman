@@ -120,4 +120,12 @@ export function validateConfig(config: DonationConfig): void {
       }
     }
   }
+
+  if (config.logo !== undefined && typeof config.logo !== 'string') {
+    throw new Error('[Radman] "logo" must be a string.');
+  }
+
+  if (config.message !== undefined && typeof config.message !== 'string') {
+    throw new Error('[Radman] "message" must be a string.');
+  }
 }

@@ -97,4 +97,28 @@ describe('Config validation', () => {
     const lightStyles = getThemeStyles('light');
     expect(lightStyles['--dm-bg']).toBe('#ffffff');
   });
+
+  it('validates logo and message fields', () => {
+    expect(() =>
+      validateConfig({
+        recipients: validRecipients,
+        logo: 'https://example.com/avatar.png',
+        message: 'Thank you for supporting our project!',
+      })
+    ).not.toThrow();
+
+    expect(() =>
+      validateConfig({
+        recipients: validRecipients,
+        logo: 123 as any,
+      })
+    ).toThrow(/logo/);
+
+    expect(() =>
+      validateConfig({
+        recipients: validRecipients,
+        message: {} as any,
+      })
+    ).toThrow(/message/);
+  });
 });

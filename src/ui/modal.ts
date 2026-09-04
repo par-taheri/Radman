@@ -62,6 +62,24 @@ export function createModal(config: DonationConfig): DonationModalInstance {
   const header = document.createElement('div');
   header.className = 'dm-header';
 
+  const headerMain = document.createElement('div');
+  headerMain.className = 'dm-header-main';
+
+  if (config.logo && config.logo.trim().length > 0) {
+    const logoEl = document.createElement('div');
+    logoEl.className = 'dm-logo';
+    const trimmedLogo = config.logo.trim();
+    if (trimmedLogo.startsWith('<svg')) {
+      logoEl.innerHTML = trimmedLogo;
+    } else {
+      const img = document.createElement('img');
+      img.src = trimmedLogo;
+      img.alt = config.title || dict.title;
+      logoEl.appendChild(img);
+    }
+    headerMain.appendChild(logoEl);
+  }
+
   const titleBlock = document.createElement('div');
   const titleEl = document.createElement('h2');
   titleEl.className = 'dm-title';
@@ -73,6 +91,7 @@ export function createModal(config: DonationConfig): DonationModalInstance {
 
   titleBlock.appendChild(titleEl);
   titleBlock.appendChild(descEl);
+  headerMain.appendChild(titleBlock);
 
   const closeBtn = document.createElement('button');
   closeBtn.className = 'dm-close-btn';
@@ -80,9 +99,17 @@ export function createModal(config: DonationConfig): DonationModalInstance {
   closeBtn.setAttribute('aria-label', dict.closeAria);
   closeBtn.innerHTML = UI_ICONS.close;
 
-  header.appendChild(titleBlock);
+  header.appendChild(headerMain);
   header.appendChild(closeBtn);
   modal.appendChild(header);
+
+  // Recipient message / note callout (rendered when configured)
+  if (config.message && config.message.trim().length > 0) {
+    const messageEl = document.createElement('div');
+    messageEl.className = 'dm-message';
+    messageEl.textContent = config.message.trim();
+    modal.appendChild(messageEl);
+  }
 
   // Tab navigation bar (rendered when multiple coins are configured)
   let tabsContainer: HTMLElement | null = null;

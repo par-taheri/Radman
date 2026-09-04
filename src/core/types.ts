@@ -22,6 +22,10 @@ export interface DonationConfig {
   title?: string;
   /** Custom modal header description. Defaults to localized string. */
   description?: string;
+  /** Optional recipient logo or avatar: image URL, base64 data URI, or raw inline SVG string. */
+  logo?: string;
+  /** Optional personal message, note, or announcement from the recipient. */
+  message?: string;
   /** Visual theme: 'dark' (default), 'light', or custom theme object. */
   theme?: Theme;
   /** User interface locale: 'en' (default) or 'fa' (with RTL support). */

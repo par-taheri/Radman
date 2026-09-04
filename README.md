@@ -180,6 +180,8 @@ interface DonationConfig {
   defaultAmount?: Partial<Record<Coin, number>>;
   title?: string;
   description?: string;
+  logo?: string;
+  message?: string;
   theme?: 'dark' | 'light' | { primaryColor: string; borderRadius?: number };
   locale?: 'en' | 'fa';
   autoAttach?: boolean;
@@ -197,6 +199,8 @@ interface DonationConfig {
 | `defaultAmount` | `Partial<Record<Coin, number>>` | `undefined` | Preselected amount per coin. |
 | `title` | `string` | Localized default | Modal header title. |
 | `description` | `string` | Localized default | Short instructional subtitle below the title. |
+| `logo` | `string` | `undefined` | Recipient avatar or logo: image URL, base64 data URI, or raw `<svg>` string. |
+| `message` | `string` | `undefined` | Personal note, announcement, or thank you message from the recipient. |
 | `theme` | `'dark' \| 'light' \| CustomTheme` | `'dark'` | Visual theme mode or custom theme object. |
 | `locale` | `'en' \| 'fa'` | `'en'` | UI language. Set to `'fa'` for complete Persian RTL layout. |
 | `autoAttach` | `boolean` | `false` | Automatically attaches `.open()` to all DOM elements with the `[radman-donate]` attribute. |
